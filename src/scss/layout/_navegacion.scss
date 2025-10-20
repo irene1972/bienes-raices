@@ -2,15 +2,22 @@
     display: flex;
     flex-direction: column;
     padding-top: 3rem;
+    align-items: center;
     @include tablet{
         flex-direction: row;
         justify-content: space-between;
     }
 }
 .navegacion{
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility .3s ease-in-out,opacity .5s linear;
+
     @include tablet{
         display: flex;
         align-items: center;
+        opacity: 1;
+        visibility: visible;
     }
     a{
         color:$blanco;
@@ -26,4 +33,17 @@
             margin-right: 0;
         }
     }
+}
+//menu de hamburguesa
+.mobile-menu{
+    @include tablet{
+        display: none;
+    }
+    img{
+        width: 5rem;
+    }
+}
+.mostrar{
+    visibility: visible;
+    opacity: 1;
 }
