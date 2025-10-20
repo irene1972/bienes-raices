@@ -1,8 +1,8 @@
 .no-webp .inicio{
-    background-image: url(../../img/header.jpg);
+    background-image: url(../img/header.jpg);
 }
 .webp .inicio{
-    background-image: url(../../img/header.webp);
+    background-image: url(../img/header.webp);
 }
 .header{
     background-color: $grisOscuro;
@@ -13,13 +13,23 @@
         @include tablet{
             min-height: 70rem;
         }
+        .contenido-header{
+            @include tablet{
+                min-height: 70rem;
+            }
+        }
     }
 }
 .contenido-header{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    @include tablet{
-        min-height: 70rem;
+    
+    h1{
+        text-align: left;
+        color:$blanco;
+        font-weight: $bold;
+        line-height: 2;
+        max-width: 60rem;
     }
 }

@@ -8,7 +8,7 @@
 </head>
 <body>
     <header class="header inicio">
-        <div class="contenedor contendio-header">
+        <div class="contenedor contenido-header">
             <div class="barra">
                 <a href="/">
                     <img src="build/img/logo.svg" alt="Logotipo de Bienes Raices">
@@ -20,12 +20,64 @@
                     <a href="contacto.html">Contacto</a>
                 </nav>
             </div>
-            <h1>Venta de Casas y Departamentos Exclusivos de Lujo</h1>
+            <h1>Venta de Casas y Departamentos <br>Exclusivos de Lujo</h1>
         </div>
     </header>
     <main class="contenedor seccion">
-        <h1>Titulo Página</h1>
+        <h1>Más Sobre Nosotros</h1>
+        <div class="iconos-nosotros">
+            <div class="icono">
+                <img src="build/img/icono1.svg" alt="Icono seguridad" loading="lazy">
+                <h3>Seguridad</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis eligendi in aut quae nesciunt vel natus, maiores labore est blanditiis. Soluta repellat culpa atque error sapiente voluptate similique suscipit voluptatum.</p>
+            </div>
+        </div>
+        <div class="iconos-nosotros">
+            <div class="icono">
+                <img src="build/img/icono2.svg" alt="Icono precio" loading="lazy">
+                <h3>Precio</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis eligendi in aut quae nesciunt vel natus, maiores labore est blanditiis. Soluta repellat culpa atque error sapiente voluptate similique suscipit voluptatum.</p>
+            </div>
+        </div>
+        <div class="iconos-nosotros">
+            <div class="icono">
+                <img src="build/img/icono3.svg" alt="Icono tiempo" loading="lazy">
+                <h3>A Tiempo</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis eligendi in aut quae nesciunt vel natus, maiores labore est blanditiis. Soluta repellat culpa atque error sapiente voluptate similique suscipit voluptatum.</p>
+            </div>
+        </div>
     </main>
+    <section class="seccion contenedor">
+        <h2>Casas y Departamentos en Venta</h2>
+        <div class="contenedor-anuncios">
+            <div class="anuncio">
+                <picture>
+                    <source  srcset="build/img/anuncio1.webp" type="image/webp">
+                    <source  srcset="build/img/anuncio1.jpg" type="image/jpeg">
+                    <img loading="lazy" src="build/img/anuncio1.jpg" alt="anuncio">
+                </picture>
+                <div class="contenido-anuncio">
+                    <h3>Casa de Lujo en el Lago</h3>
+                    <p>Casa en el lago con excelente vista, acabados de lujo a un excelente precio</p>
+                    <p class="precio">$3,000,000</p>
+                    <ul class="iconos-caracteristicas">
+                        <li>
+                            <img loading="lazy" src="build/img/icono_wc.svg" alt="icono wc">
+                            <p>3</p>
+                        </li>
+                        <li>
+                            <img loading="lazy" src="build/img/icono_estacionamiento.svg" alt="icono estacionamiento">
+                            <p>3</p>
+                        </li>
+                        <li>
+                            <img loading="lazy" src="build/img/icono_dormitorio.svg" alt="icono habitaciones">
+                            <p>4</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
     <footer class="footer seccion">
         <div class="contenedor contenedor-footer">
             <nav class="navegacion">
@@ -38,5 +90,6 @@
         <p class="copyright">Todos los derechos reservados 2021 &copy;</p>
     </footer>
     <script src="build/js/bundle.min.js"></script>
+    <!--<script src="build/js/bundle.js"></script>-->
 </body>
 </html>
