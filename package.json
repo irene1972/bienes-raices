@@ -4,10 +4,16 @@
   "description": "Curso Desarrollo Web Completo",
   "main": "gulpfile.js",
   "scripts": {
-    "dev": "gulp"
+    "dev": "gulp",
+    "dev2":"nodemon index.js"
   },
-  "author": "Juan De La Torre",
+  "author": "Irene Olmos Gómez",
   "license": "ISC",
+    "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0"
+  },
   "devDependencies": {
     "cssnano": "^5.1.0",
     "gulp": "^4.0.2",
@@ -24,6 +30,7 @@
     "gulp-terser-js": "^5.2.2",
     "gulp-webp": "^4.0.1",
     "sass": "^1.49.9",
-    "terser": "^4.8.0"
+    "terser": "^4.8.0",
+    "nodemon": "^3.1.10"
   }
 }
