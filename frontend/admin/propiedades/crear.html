@@ -4,42 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bienes Raices</title>
-    <link rel="stylesheet" href="/build/css/app.css">
+    <link rel="stylesheet" href="/frontend/build/css/app.css">
 </head>
 <body>
     <header class="header">
         <div class="contenedor contendio-header">
             <div class="barra">
                 <a href="/">
-                    <img src="/build/img/logo.svg" alt="Logotipo de Bienes Raices">
+                    <img src="/frontend/build/img/logo.svg" alt="Logotipo de Bienes Raices">
                 </a>
                 <nav class="navegacion">
-                    <a href="/nosotros.html">Nosotros</a>
-                    <a href="/anuncios.html">Anuncios</a>
-                    <a href="/blog.html">Blog</a>
-                    <a href="/contacto.html">Contacto</a>
+                    <a href="/frontend/nosotros.html">Nosotros</a>
+                    <a href="/frontend/anuncios.html">Anuncios</a>
+                    <a href="/frontend/blog.html">Blog</a>
+                    <a href="/frontend/contacto.html">Contacto</a>
                 </nav>
             </div>
         </div>
     </header>
     <main class="contenedor seccion">
         <h1>Crear</h1>
-        <a href="/admin" class="boton-verde">Volver</a>
-        <form action="" class="formulario">
+        <a href="/frontend/admin" class="boton-verde">Volver</a>
+        <form method="POST" action="./crear.html" class="formulario">
             <fieldset>
                 <legend>Información General</legend>
 
                 <label for="titulo">Título:</label>
-                <input type="text" id="titulo" placeholder="Título Propiedad">
+                <input type="text" id="titulo" name="titulo" placeholder="Título Propiedad">
 
                 <label for="precio">Precio</label>
-                <input type="number" id="precio" placeholder="Precio Propiedad">
+                <input type="number" id="precio" name="precio" placeholder="Precio Propiedad">
 
                 <label for="imagen">Imagen</label>
-                <input type="file" id="imagen" accept="image/jpeg, image/png">
+                <!--<input type="file" id="imagen" name="imagen" accept="image/jpeg, image/png">-->
+                <input type="text" id="imagen" name="imagen" placeholder="Ruta de la imagen">
 
                 <label for="descripcion">Descripción</label>
-                <textarea id="descripcion"></textarea>
+                <textarea id="descripcion" name="descripcion"></textarea>
             </fieldset>
             <fieldset>
                 <legend>Información de la Propiedad</legend>
@@ -55,9 +56,8 @@
             </fieldset>
             <fieldset>
                 <legend>Vendedor</legend>
-                <select name="" id="">
-                    <option value="2">Irene</option>
-                    <option value="3">Karen</option>
+                <select name="vendedor" id="vendedor">
+                    <option value="" selected disabled>-- Seleccione Vendedor --</option>
                 </select>
             </fieldset>
             <input type="submit" value="Crear Propiedad" class="boton boton-verde">
@@ -66,20 +66,20 @@
     <footer class="footer seccion">
         <div class="contenedor contenedor-footer">
                 <div class="mobile-menu">
-                    <img src="/build/img/barras.svg" alt="icono menu responsive">
+                    <img src="/frontend/build/img/barras.svg" alt="icono menu responsive">
                 </div>
                 <div class="derecha">
-                    <img src="/build/img/dark-mode.svg" alt="" class="dark-mode-boton">
+                    <img src="/frontend/build/img/dark-mode.svg" alt="imagen dark mode" class="dark-mode-boton">
                     <nav class="navegacion">
-                        <a href="/nosotros.html">Nosotros</a>
-                        <a href="/anuncios.html">Anuncios</a>
-                        <a href="/blog.html">Blog</a>
-                        <a href="/contacto.html">Contacto</a>
+                        <a href="/frontend/nosotros.html">Nosotros</a>
+                        <a href="/frontend/anuncios.html">Anuncios</a>
+                        <a href="/frontend/blog.html">Blog</a>
+                        <a href="/frontend/contacto.html">Contacto</a>
                     </nav>
                 </div>
         </div>
         <p class="copyright">Todos los derechos reservados 2021 &copy;</p>
     </footer>
-    <script src="/build/js/bundle.min.js"></script>
+    <script src="/frontend/build/js/bundle.min.js"></script>
 </body>
 </html>

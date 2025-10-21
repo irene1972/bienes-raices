@@ -13,6 +13,7 @@ const obtenerPropiedades=async (req, res) => {
 }
 
 const crearPropiedad=async(req,res)=>{
+  console.log(req.body);
   let {titulo,precio,imagen,descripcion,habitaciones,wc,estacionamiento,creado}=req.body;
   if(!titulo || !precio || !imagen){
     return res.status(400).json({msg:'Los campos TITULO, PRECIO e IMAGEN son obligatorios'});

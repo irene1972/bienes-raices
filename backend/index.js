@@ -1,9 +1,8 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
-import pool from './config/db.js';
 import propiedadRoutes from './routes/propiedadRoutes.js';
-//import pacienteRoutes from './routes/pacienteRoutes.js';
+import vendedorRoutes from './routes/vendedorRoutes.js';
 
 
 const corsOptions ={
@@ -13,6 +12,7 @@ const corsOptions ={
 };
 
 const app=express();
+
 app.use(express.json());
 
 app.use(cors(corsOptions));
@@ -20,12 +20,8 @@ app.use(cors(corsOptions));
 dotenv.config();
 //console.log(process.env.DB_HOST);
 
-//********************** */
-
-//*********************** */
-
 app.use('/api/propiedades',propiedadRoutes);
-//app.use('/api/pacientes',pacienteRoutes);
+app.use('/api/vendedores',vendedorRoutes);
 
 const PORT=process.env.PORT || 4000;
 
