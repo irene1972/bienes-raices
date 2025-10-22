@@ -70,9 +70,27 @@ const actualizarPropiedad=async (req,res)=>{
 
 }
 
+const eliminarPropiedad=async (req,res)=>{
+  const id=req.params.id;
+  const sql = `DELETE FROM propiedades WHERE id=${id}`;
+  try {
+    // Ejecutamos la consulta SQL para eliminar datos
+    const [result] = await pool.execute(sql); 
+    // Mostramos el resultado de la operación
+    console.log('Propiedad eliminada con ID:', result.insertId);
+    return res.json({mensaje:`Se ha eliminado la propiedad`});
+  } catch (error) {
+    // Manejamos cualquier error que ocurra durante la eliminación de datos
+    console.error('Error al eliminar datos:', error);
+    return res.status(500).json({msg:error.message});
+  } 
+
+}
+
 export {
     obtenerPropiedades,
     crearPropiedad,
     obtenerPropiedad,
-    actualizarPropiedad
+    actualizarPropiedad,
+    eliminarPropiedad
 }

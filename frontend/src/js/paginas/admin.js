@@ -1,3 +1,5 @@
+import {imprimirAlerta} from '../funciones.js';
+
 (()=>{
     
     document.addEventListener('DOMContentLoaded',function(){
@@ -65,11 +67,8 @@
 
                 tabla.appendChild(fila);
 
-                const botonEliminar=document.querySelector('a.eliminar');
-                const botonActualizar=document.querySelector('a.actualizar');
-                botonEliminar.onclick=()=>{
-                    console.log('eliminar');
-                }
+                let botonEliminar=document.querySelector('a.eliminar');
+                //const botonActualizar=document.querySelector('a.actualizar');
 
                 for (let botonActualizar of document.querySelectorAll('.actualizar')) {
                     // here i add the the event Listener to the button 
@@ -78,10 +77,40 @@
                         window.location.replace(`/frontend/admin/propiedades/actualizar.html?id=${id}`);
                     });
                 }
+                
+                botonEliminar.onclick=(e)=>{
+                    //console.log(e.target);
+                    if (window.confirm("¿Desea eliminar la propiedad?")) {
+                        const id=e.target.id;
+                        fetch(`http://localhost:4000/api/propiedades/${id}`, {
+                            method: "DELETE",
+                            headers: {
+                                'Content-Type':'application/json'
+                            }
+                            })
+                            .then(response => response.json())
+                            .then(resultado => {
+                                if(resultado.msg){
+                                    imprimirAlerta(resultado.msg,'error',main);
+                                    return;
+                                }
+                                imprimirAlerta(resultado.mensaje,'exito',main);
+
+                                setTimeout(()=>{
+                                    window.location.reload();
+                                },3000);
+                                
+                                
+                            })
+                            .catch(err => console.log(err));
+
+                    }
+                };
+
             });
         })
         .catch(error => console.error('Error:', error.message));
     }
-    
+
     
 })()
