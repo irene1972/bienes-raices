@@ -43,6 +43,7 @@
             //console.log(data);
             data.forEach((propiedad)=>{
                 //console.log(vendedor);
+
                 const fila=document.createElement('TR');
                 const col1=document.createElement('TD');
                 col1.textContent=propiedad.titulo;
@@ -56,7 +57,7 @@
                 <a href="#" id="${propiedad.id}" class="boton boton-rojo-block eliminar">Eliminar</a>
                 <a href="#" id="${propiedad.id}" class="boton boton-naranja-block actualizar">Actualizar</a>
                 `;
-
+                
                 fila.appendChild(col1);
                 fila.appendChild(col2);
                 fila.appendChild(col3);
@@ -69,9 +70,13 @@
                 botonEliminar.onclick=()=>{
                     console.log('eliminar');
                 }
-                botonActualizar.onclick=(e)=>{
-                    const id=e.target.getAttribute('id');
-                    window.location.replace(`/frontend/admin/propiedades/actualizar.html?id=${id}`);
+
+                for (let botonActualizar of document.querySelectorAll('.actualizar')) {
+                    // here i add the the event Listener to the button 
+                    botonActualizar.addEventListener('click', (e) => {
+                        const id=e.target.getAttribute('id');
+                        window.location.replace(`/frontend/admin/propiedades/actualizar.html?id=${id}`);
+                    });
                 }
             });
         })
