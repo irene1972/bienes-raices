@@ -1,7 +1,8 @@
 import {imprimirAlerta} from '../funciones.js'; 
+import {URL_BACKEND} from '../variables.js';
 
 (()=>{
-    
+
 const formulario=document.querySelector('.formulario');
 //const archivoInput = document.getElementById('#imagen');
 const vendedorSelect=formulario.querySelector('#vendedor');
@@ -53,7 +54,7 @@ function validarForm(e){
 
 function guardarPropiedad(propiedad){
 
-    fetch(`http://localhost:4000/api/propiedades`, {
+    fetch(`${URL_BACKEND}/api/propiedades`, {
         method: "POST",
         body: JSON.stringify(propiedad),
         headers: {
@@ -86,7 +87,8 @@ function guardarPropiedad(propiedad){
 }
 
 function imprimirSelect(){
-        fetch(`http://localhost:4000/api/vendedores`, {
+    
+        fetch(`${URL_BACKEND}/api/vendedores`, {
             method: 'GET',
             headers: {
                 'Content-Type':'application/json'

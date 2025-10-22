@@ -1,4 +1,5 @@
  import {imprimirAlerta} from '../funciones.js';
+ import {URL_BACKEND} from '../variables.js';
  
 (()=>{
 
@@ -29,7 +30,7 @@
         const params = new URLSearchParams(document.location.search);
         const id = params.get("id");
         
-        fetch(`http://localhost:4000/api/propiedades/${id}`, {
+        fetch(`${URL_BACKEND}/api/propiedades/${id}`, {
             method: 'GET',
             headers: {
                 'Content-Type':'application/json'
@@ -70,7 +71,7 @@
             estacionamiento:estacionamientoInput.value
         }
 
-        fetch(`http://localhost:4000/api/propiedades/${id}`, {
+        fetch(`${URL_BACKEND}/api/propiedades/${id}`, {
             method: "PUT",
             body: JSON.stringify(propiedad),
             headers: {

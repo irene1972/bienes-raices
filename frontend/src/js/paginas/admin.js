@@ -1,4 +1,5 @@
 import {imprimirAlerta} from '../funciones.js';
+ import {URL_BACKEND} from '../variables.js';
 
 (()=>{
     
@@ -34,7 +35,7 @@ import {imprimirAlerta} from '../funciones.js';
 
         main.appendChild(tabla);
 
-        fetch(`http://localhost:4000/api/propiedades`, {
+        fetch(`${URL_BACKEND}/api/propiedades`, {
             method: 'GET',
             headers: {
                 'Content-Type':'application/json'
@@ -82,7 +83,7 @@ import {imprimirAlerta} from '../funciones.js';
                     //console.log(e.target);
                     if (window.confirm("¿Desea eliminar la propiedad?")) {
                         const id=e.target.id;
-                        fetch(`http://localhost:4000/api/propiedades/${id}`, {
+                        fetch(`${URL_BACKEND}/api/propiedades/${id}`, {
                             method: "DELETE",
                             headers: {
                                 'Content-Type':'application/json'

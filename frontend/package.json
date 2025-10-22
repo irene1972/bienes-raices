@@ -2,7 +2,7 @@
   "name": "bienesraices",
   "version": "1.0.0",
   "description": "Frontend Curso Desarrollo Web Completo",
-  "main": "gulpfile.js",
+  "main": "index.js",
   "scripts": {
     "dev": "gulp"
   },
@@ -25,5 +25,8 @@
     "gulp-webp": "^4.0.1",
     "sass": "^1.49.9",
     "terser": "^4.8.0"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.3"
   }
 }
