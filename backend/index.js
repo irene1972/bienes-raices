@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 import propiedadRoutes from './routes/propiedadRoutes.js';
 import vendedorRoutes from './routes/vendedorRoutes.js';
+import usuarioRoutes from './routes/usuarioRoutes.js';
 
 const corsOptions ={
    origin:'*', 
@@ -17,10 +18,10 @@ app.use(express.json());
 app.use(cors(corsOptions));
 
 dotenv.config();
-//console.log(process.env.DB_HOST);
 
 app.use('/api/propiedades',propiedadRoutes);
 app.use('/api/vendedores',vendedorRoutes);
+app.use('/api/usuarios',usuarioRoutes);
 
 const PORT=process.env.PORT || 4000;
 
