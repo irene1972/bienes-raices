@@ -69,15 +69,23 @@ import {imprimirAlerta} from '../funciones.js';
                 tabla.appendChild(fila);
 
                 let botonEliminar=document.querySelector('a.eliminar');
-                //const botonActualizar=document.querySelector('a.actualizar');
+                let botonActualizar=document.querySelector('a.actualizar');
 
-                for (let botonActualizar of document.querySelectorAll('.actualizar')) {
+                for (botonActualizar of document.querySelectorAll('.actualizar')) {
                     // here i add the the event Listener to the button 
                     botonActualizar.addEventListener('click', (e) => {
                         const id=e.target.getAttribute('id');
                         window.location.replace(`/frontend/admin/propiedades/actualizar.html?id=${id}`);
                     });
                 }
+                /*
+                for (botonEliminar of document.querySelectorAll('a.eliminar')) {
+                    // here i add the the event Listener to the button 
+                    botonEliminar.addEventListener('click', (e) => {
+                        console.log('irene');
+                    });
+                }
+                    */
                 
                 botonEliminar.onclick=(e)=>{
                     //console.log(e.target);

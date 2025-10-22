@@ -28,16 +28,17 @@ export function cargarCasasYDepsEnVenta(num){
         })
         .then(response=>response.json())
         .then(data=>{
+            console.log(data);
             data.forEach(propiedad=>{
                 let anuncio=document.createElement('DIV');
-                const {titulo,descripcion,precio,imagen,habitaciones,estacionamiento,wc}=propiedad;
+                const {titulo,descripcion,precio,imagen,habitaciones,estacionamiento,wc,id}=propiedad;
                 
                 anuncio.classList.add('anuncio');
                 anuncio.innerHTML=`
                 <picture>
-                    <source  srcset="${imagen}" type="image/webp">
-                    <source  srcset="${imagen}" type="image/jpeg">
-                    <img loading="lazy" src="${imagen}" alt="anuncio">
+                    <source  srcset="${imagen}.webp" type="image/webp">
+                    <source  srcset="${imagen}.jpg" type="image/jpeg">
+                    <img loading="lazy" src="${imagen}.jpg" alt="anuncio">
                 </picture>
                 <div class="contenido-anuncio">
                     <h3>${titulo}</h3>
@@ -57,7 +58,7 @@ export function cargarCasasYDepsEnVenta(num){
                             <p>${habitaciones}</p>
                         </li>
                     </ul>
-                    <a href="anuncio.html" class="boton-amarillo-block">
+                    <a href="anuncio.html?id=${id}" class="boton-amarillo-block">
                         Ver Propiedad
                     </a>
                 </div>
