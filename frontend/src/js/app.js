@@ -1,5 +1,5 @@
 (()=>{
-/*
+
 document.addEventListener('DOMContentLoaded',function(){
     eventListeners();
     darkMode();
@@ -37,5 +37,5 @@ function navegacionResponsive(){
     const navegacion=document.querySelector('.navegacion');
     navegacion.classList.toggle('mostrar');
 }
-    */
+    
 })()
