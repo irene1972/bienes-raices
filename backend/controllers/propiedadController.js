@@ -87,10 +87,22 @@ const eliminarPropiedad=async (req,res)=>{
 
 }
 
+const obtenerNumPropiedades=async(req,res)=>{
+    try {
+      const num=req.params.num;
+      const [rows] = await pool.query(`SELECT * FROM propiedades LIMIT ${num}`);
+      res.json(rows);
+    } catch (err) {
+      console.error("Error al ejecutar la consulta:", err);
+      res.status(500).send('Error interno del servidor');
+    }
+}
+
 export {
     obtenerPropiedades,
     crearPropiedad,
     obtenerPropiedad,
     actualizarPropiedad,
-    eliminarPropiedad
+    eliminarPropiedad,
+    obtenerNumPropiedades
 }

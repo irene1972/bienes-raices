@@ -2,7 +2,7 @@
   "name": "bienesraices",
   "version": "1.0.0",
   "description": "Frontend Curso Desarrollo Web Completo",
-  "main": "index.js",
+  "main": "gulpfile.js",
   "scripts": {
     "dev": "gulp"
   },

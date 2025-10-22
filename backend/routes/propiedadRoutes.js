@@ -4,7 +4,8 @@ import {
     crearPropiedad,
     obtenerPropiedad,
     actualizarPropiedad,
-    eliminarPropiedad
+    eliminarPropiedad,
+    obtenerNumPropiedades
 } from '../controllers/propiedadController.js';
 
 const router=express.Router();
@@ -16,5 +17,8 @@ router.post('/',crearPropiedad);
 router.get('/:id',obtenerPropiedad);
 router.put('/:id',actualizarPropiedad);
 router.delete('/:id',eliminarPropiedad);
+
+router.get('/varias/:num',obtenerNumPropiedades);
+
 
 export default router;

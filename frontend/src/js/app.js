@@ -1,8 +1,11 @@
+import {cargarCasasYDepsEnVenta} from './funciones.js';
+
 (()=>{
 
 document.addEventListener('DOMContentLoaded',function(){
     eventListeners();
     darkMode();
+    cargarCasasYDepsEnVenta(3);
 });
 
 function darkMode(){
@@ -38,4 +41,6 @@ function navegacionResponsive(){
     navegacion.classList.toggle('mostrar');
 }
     
+
+
 })()
