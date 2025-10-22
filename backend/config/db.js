@@ -1,17 +1,11 @@
-// db.js
-const mysql = require('mysql2/promise');
-//console.log(process.env.DB_HOST);
+import {DB_HOST, DB_USER, DB_PASS, DB_NAME_DB} from '../src/js/variables.js';
+import mysql from 'mysql2/promise';
+
 const pool = mysql.createPool({
-    host: 'localhost', // o la IP del servidor
-    user: 'root',
-    password: 'root',
-    database: 'bienesraices_crud'
-    /*
-    host: process.env.DB_HOST, // o la IP del servidor
-    user: process.env.DB_USER,
-    password: process.env.DB_PASS,
-    database: process.env.DB_NAME_DB
-    */
+    host: DB_HOST, // o la IP del servidor
+    user: DB_USER,
+    password: DB_PASS,
+    database: DB_NAME_DB
 });
 
-module.exports = pool;
+export default pool;
