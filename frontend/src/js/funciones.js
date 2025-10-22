@@ -1,4 +1,5 @@
-function imprimirAlerta(mensaje,tipo,referencia){
+
+export function imprimirAlerta(mensaje,tipo,referencia){
     const alertaPrevia=document.querySelector('.alerta');
     if(alertaPrevia){
         alertaPrevia.remove();
@@ -15,3 +16,4 @@ function imprimirAlerta(mensaje,tipo,referencia){
     },3000);
     
 }
+    

@@ -28,7 +28,7 @@ function css() {
         .pipe(sourcemaps.write('.'))
         .pipe(dest('build/css'));
 }
-
+/*
 function javascript() {
     return src(paths.js)
       .pipe(sourcemaps.init())
@@ -38,7 +38,7 @@ function javascript() {
       .pipe(rename({ suffix: '.min' }))
       .pipe(dest('./build/js'))
 }
-
+*/
 function imagenes() {
     return src(paths.imagenes)
         .pipe(cache(imagemin({ optimizationLevel: 3 })))
@@ -56,11 +56,11 @@ function versionWebp() {
 
 function watchArchivos() {
     watch(paths.scss, css);
-    watch(paths.js, javascript);
+    //watch(paths.js, javascript);
     watch(paths.imagenes, imagenes);
     watch(paths.imagenes, versionWebp);
 }
 
 exports.css = css;
 exports.watchArchivos = watchArchivos;
-exports.default = parallel(css, javascript, imagenes, versionWebp, watchArchivos); 
+exports.default = parallel(css, imagenes, versionWebp, watchArchivos); 

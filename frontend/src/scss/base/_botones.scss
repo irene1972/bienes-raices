@@ -1,3 +1,10 @@
+.boton{
+    border: none; 
+    color: white; 
+    padding: .5rem 1rem; 
+    cursor: pointer; 
+    border-radius: 5px; 
+}
 .boton-amarillo{
     @include boton($amarillo,inline-block);
 }
@@ -7,4 +14,17 @@
 }
 .boton-verde{
     @include boton($verde,inline-block);
+}
+.boton-rojo-block{
+    width: 10rem;
+    background-color: #f44336;
+    &:hover{
+        background-color: #da190b;
+    }
+}
+.boton-naranja-block{
+    background-color: #ff9800;
+    &:hover{
+        background-color: #e68a00;
+    }
 }

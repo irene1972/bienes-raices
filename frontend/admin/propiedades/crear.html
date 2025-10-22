@@ -10,7 +10,7 @@
     <header class="header">
         <div class="contenedor contendio-header">
             <div class="barra">
-                <a href="/">
+                <a href="/frontend/admin/">
                     <img src="/frontend/build/img/logo.svg" alt="Logotipo de Bienes Raices">
                 </a>
                 <nav class="navegacion">
@@ -25,7 +25,7 @@
     <main class="contenedor seccion">
         <h1>Crear</h1>
         <a href="/frontend/admin" class="boton-verde">Volver</a>
-        <form method="POST" action="./crear.html" class="formulario">
+        <form method="POST" action=""  enctype="multipart/form-data" class="formulario crear">
             <fieldset>
                 <legend>Información General</legend>
 
@@ -36,7 +36,7 @@
                 <input type="number" id="precio" name="precio" placeholder="Precio Propiedad">
 
                 <label for="imagen">Imagen</label>
-                <!--<input type="file" id="imagen" name="imagen" accept="image/jpeg, image/png">-->
+                <!--<input type="file" id="imagen2" name="imagen2" accept="image/jpeg, image/png">-->
                 <input type="text" id="imagen" name="imagen" placeholder="Ruta de la imagen">
 
                 <label for="descripcion">Descripción</label>
@@ -80,6 +80,6 @@
         </div>
         <p class="copyright">Todos los derechos reservados 2021 &copy;</p>
     </footer>
-    <script src="/frontend/build/js/bundle.min.js"></script>
+    <script src="../../src/js/paginas/crear.js" type="module"></script>
 </body>
 </html>

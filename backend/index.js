@@ -4,7 +4,6 @@ import cors from 'cors';
 import propiedadRoutes from './routes/propiedadRoutes.js';
 import vendedorRoutes from './routes/vendedorRoutes.js';
 
-
 const corsOptions ={
    origin:'*', 
    credentials:true,

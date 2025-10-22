@@ -1,9 +1,18 @@
+import {imprimirAlerta} from '../funciones.js'; 
+
 (()=>{
+    
 const formulario=document.querySelector('.formulario');
 //const archivoInput = document.getElementById('#imagen');
 const vendedorSelect=formulario.querySelector('#vendedor');
+const tituloInput=formulario.querySelector('#titulo');
+const precioInput=formulario.querySelector('#precio');
+const imagenInput=formulario.querySelector('#imagen');
+const descripcionInput=formulario.querySelector('#descripcion');
+const habitacionesInput=formulario.querySelector('#habitaciones');
+const wcInput=formulario.querySelector('#wc');
+const estacionamientoInput=formulario.querySelector('#estacionamiento');
 let propiedad={};
-let vendedores=[];
 
 document.addEventListener('DOMContentLoaded',eventListeners);
 
@@ -15,14 +24,6 @@ function eventListeners(){
 
 function validarForm(e){
     e.preventDefault();
-    
-    const tituloInput=formulario.querySelector('#titulo');
-    const precioInput=formulario.querySelector('#precio');
-    const imagenInput=formulario.querySelector('#imagen');
-    const descripcionInput=formulario.querySelector('#descripcion');
-    const habitacionesInput=formulario.querySelector('#habitaciones');
-    const wcInput=formulario.querySelector('#wc');
-    const estacionamientoInput=formulario.querySelector('#estacionamiento');
 
     const titulo=tituloInput.value.trim();
     const precio=precioInput.value.trim();
@@ -31,7 +32,7 @@ function validarForm(e){
     const habitaciones=habitacionesInput.value;
     const wc=wcInput.value;
     const estacionamiento=estacionamientoInput.value;
-    const vendedor=vendedorSelect.value;
+    //const vendedor=vendedorSelect.value;
 
     if(!titulo || !precio || !imagen){
         imprimirAlerta('Los campos TITULO, PRECIO e IMAGEN son obligatorios','error',formulario);
@@ -44,25 +45,26 @@ function validarForm(e){
     propiedad.habitaciones=habitaciones;
     propiedad.wc=wc;
     propiedad.estacionamiento=estacionamiento;
-    propiedad.vendedor=vendedor;
+    //propiedad.vendedor=vendedor;
 
     //console.log(propiedad);
     guardarPropiedad(propiedad,imagenInput);
 }
 
 function guardarPropiedad(propiedad){
-    
+
     fetch(`http://localhost:4000/api/propiedades`, {
         method: "POST",
         body: JSON.stringify(propiedad),
         headers: {
-            'Content-Type':'application/json'
+                'Content-Type':'application/json'
         }
         })
         .then(response => response.json())
         .then(resultado => {
             if(resultado.msg){
                 imprimirAlerta(resultado.msg,'error',formulario);
+                propiedad={};
                 return;
             }
             imprimirAlerta('Ha sido guardado correctamente','exito',formulario);
@@ -70,6 +72,14 @@ function guardarPropiedad(propiedad){
             precioInput.value='';
             imagenInput.value='';
             descripcionInput.value='';
+            habitacionesInput.value='';
+            wcInput.value='';
+            estacionamientoInput.value='';
+            propiedad={};
+
+            setTimeout(()=>{
+                window.location.replace(`/frontend/admin`);
+            },3000);
             
         })
         .catch(err => console.log(err));
@@ -84,9 +94,9 @@ function imprimirSelect(){
         })
         .then(response => response.json())
         .then(data => {
-            console.log(data);
+            //console.log(data);
             data.forEach((vendedor)=>{
-                console.log(vendedor);
+                //console.log(vendedor);
                 const opcion=document.createElement('OPTION');
                 opcion.value=vendedor.id;
                 opcion.textContent=vendedor.nombre;

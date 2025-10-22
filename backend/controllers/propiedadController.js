@@ -13,7 +13,6 @@ const obtenerPropiedades=async (req, res) => {
 }
 
 const crearPropiedad=async(req,res)=>{
-  console.log(req.body);
   let {titulo,precio,imagen,descripcion,habitaciones,wc,estacionamiento,creado}=req.body;
   if(!titulo || !precio || !imagen){
     return res.status(400).json({msg:'Los campos TITULO, PRECIO e IMAGEN son obligatorios'});
@@ -30,15 +29,50 @@ const crearPropiedad=async(req,res)=>{
   const sql = `INSERT INTO propiedades (titulo, precio, imagen, descripcion, habitaciones, wc, estacionamiento, creado) VALUES ('${titulo}','${precio}','${imagen}','${descripcion}','${habitaciones}','${wc}','${estacionamiento}','${creado}')`;
   try {
     const [result] = await pool.execute(sql, [titulo, precio, imagen,descripcion,habitaciones,wc,estacionamiento,creado]);
-    console.log('Usuario insertado con ID:', result.insertId);
-    return res.json({mensaje:`Se ha insertado el usuario con id: ${result.insertId}`});
+    console.log('Propiedad insertada con ID:', result.insertId);
+    return res.json({mensaje:`Se ha insertado la propiedad con id: ${result.insertId}`});
   } catch (err) {
-    console.error('Error al insertar usuario:', err);
+    console.error('Error al insertar propiedad:', err);
     return res.status(500).json({msg:err.message});
   }
 }
 
+const obtenerPropiedad=async(req,res)=>{
+  const id=req.params.id;
+  try {
+    // Obtener una conexión del pool
+    const [row] = await pool.query(`SELECT * FROM propiedades WHERE id=${id}`);
+    res.json(row);
+  } catch (err) {
+    console.error("Error al ejecutar la consulta:", err);
+    res.status(500).send('Error interno del servidor');
+  }
+}
+
+const actualizarPropiedad=async (req,res)=>{
+  const id=req.params.id;
+  const {titulo, precio, imagen, descripcion, habitaciones, wc, estacionamiento}=req.body;
+  if(!titulo || !precio || !imagen) return res.status(400).json({msg:'Los campos TITULO, PRECIO e IMAGEN son obligatorios'});
+  if(!descripcion) descripcion='';
+  if(!habitaciones) habitaciones=0;
+  if(!wc) wc=0;
+  if(!estacionamiento) estacionamiento=0;
+
+  const sql = `UPDATE propiedades SET titulo='${titulo}', precio='${precio}', imagen='${imagen}', descripcion='${descripcion}', habitaciones='${habitaciones}', wc='${wc}', estacionamiento='${estacionamiento}' WHERE id='${id}'`;
+  try {
+    const [result] = await pool.execute(sql, [titulo, precio, imagen,descripcion,habitaciones,wc,estacionamiento]);
+    console.log('Propiedad modificado con ID:', result.insertId);
+    return res.json({mensaje:`Se ha modificado la propiedad con id: ${result.insertId}`});
+  } catch (err) {
+    console.error('Error al modificar propiedad:', err);
+    return res.status(500).json({msg:err.message});
+  }
+
+}
+
 export {
     obtenerPropiedades,
-    crearPropiedad
+    crearPropiedad,
+    obtenerPropiedad,
+    actualizarPropiedad
 }

@@ -1,0 +1,11 @@
+table.tabla{
+    width: 100%;
+    margin-top: 2rem;
+}
+td.flex{
+  display: flex;
+  gap: 2px;
+}
+tr.encabezados{
+  background-color: $verde;
+}
