@@ -20,11 +20,11 @@ const emailRegistro=async (datos)=>{
         html:`
                 <p>Hola: ${nombre}, confirma tu cuenta en Bienes Raices</p>
                 <p>Tu cuenta ya está lista, solo debes confirmarla en el siguiente enlace:
-                <a href="${process.env.API_URL}/usuarios/confirmar/${token}">Confirmar Cuenta</a></p>
+                <a href="${process.env.FRONTEND_URL}/frontend/confirmar.html">Confirmar Cuenta</a></p>
                 <p>Si tú no creaste esta cuenta, puedes ignorar este mensaje</p>
             `
     });
-    console.log("Mensaje enviado: %s", info.messageId);
+    //console.log("Mensaje enviado: %s", info.messageId);
 }
 
 export default emailRegistro;
