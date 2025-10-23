@@ -1,10 +1,29 @@
 import express from 'express';
-import { registrar,perfil,confirmar } from '../controllers/usuarioController.js';
+import { 
+    registrar,
+    perfil,
+    confirmar, 
+    autenticar,
+    resetPassword,
+    comprobarToken,
+    nuevoPassword
+ } from '../controllers/usuarioController.js';
+import checkAuth from '../middleware/authMiddleware.js';
 
 const router=express.Router();
 
+//rutas públicas
 router.post('/',registrar);
-router.get('/perfil',perfil);
 router.get('/confirmar/:token',confirmar);
+router.post('/login',autenticar);
+router.post('/reset-password',resetPassword);
+router.get('/reset-password/:token',comprobarToken);
+router.post('/reset-password/:token',nuevoPassword);
+//esto es lo mismo que las dos de arriba
+//router.route('/reset-password/:token').get(comprobarToken).post(nuevoPassword)
+
+//rutas privadas
+router.get('/perfil',checkAuth,perfil);
+
 
 export default router;
