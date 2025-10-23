@@ -2,6 +2,7 @@ import bcrypt from 'bcrypt';
 import pool from '../config/db.js';
 import generarId from '../helpers/generarId.js';
 import generarJWT from '../helpers/generarJWT.js';
+import emailRegistro from '../helpers/emailRegistro.js';
 
 const registrar=async(req,res)=>{
     let {nombre,apellidos,password,email,telefono}=req.body;
@@ -28,6 +29,14 @@ const registrar=async(req,res)=>{
     try {
         const sql = `INSERT INTO usuarios (nombre, apellidos, password, email, telefono,token) VALUES ('${nombre}','${apellidos}','${newPassword}','${email}','${telefono}','${token}')`;
         const result = await pool.execute(sql, [nombre, apellidos, password,email,telefono,token]);
+
+        //envio del email de confirmación
+        emailRegistro({
+            email,
+            nombre,
+            token
+        });
+
         res.json({mensaje:`El registro se ha guardado correctamente, con id=${result[0].insertId}`});
 
     } catch (error) {

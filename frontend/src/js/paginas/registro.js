@@ -13,6 +13,7 @@ const apellidosInput=document.querySelector('#apellidos');
 const telefonoInput=document.querySelector('#telefono');
 const emailInput=document.querySelector('#email');
 const passwordInput=document.querySelector('#password');
+const repitePasswordInput=document.querySelector('#repitePassword');
 
 function eventListeners(){
     formulario.addEventListener('submit',validarFormulario);
@@ -26,16 +27,11 @@ function validarFormulario(e){
     const telefono=telefonoInput.value.trim();
     const email=emailInput.value.trim();
     const password=passwordInput.value.trim();
+    const repitePassword=repitePasswordInput.value.trim();
     
-
-    if(!email || !password){
-        imprimirAlerta('Los campos EMAIL y PASSWORD son obligatorios','error',formulario);
-        return;
-    }
-    if(!validarEmail){
-        imprimirAlerta('Debe usar un email válido','error',formulario);
-        return;
-    }
+    if(!email || !password) return imprimirAlerta('Los campos EMAIL y PASSWORD son obligatorios','error',formulario);
+    if(!validarEmail) return imprimirAlerta('Debe usar un email válido','error',formulario);
+    if(password !== repitePassword) return imprimirAlerta('Los dos passwords deben ser iguales','error',formulario);
 
     usuario.nombre=nombre;
     usuario.apellidos=apellidos;
