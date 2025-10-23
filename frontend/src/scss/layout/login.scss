@@ -1,5 +1,11 @@
-.reset-password{
+.reset-password,.registro,.login{
     display: inline-block;
     padding-top: 2rem;
-    color: black;
+    color: $verde;
+}
+.reset-password{
+    padding-left: 5rem;
+}
+.registro{
+    padding-right: 5rem;
 }
