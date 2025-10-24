@@ -1,1 +1,67 @@
-<h1>ACTUALIZAR</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienes Raices</title>
+    <link rel="stylesheet" href="/frontend/build/css/app.css">
+</head>
+<body>
+    <header class="header">
+        <div class="contenedor contendio-header">
+            <div class="barra">
+                <a href="/frontend">
+                    <img src="/frontend/build/img/logo.svg" alt="Logotipo de Bienes Raices">
+                </a>
+                <nav class="navegacion">
+                    <a href="/frontend/nosotros.html">Nosotros</a>
+                    <a href="/frontend/anuncios.html">Anuncios</a>
+                    <a href="/frontend/blog.html">Blog</a>
+                    <a href="/frontend/contacto.html">Contacto</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <main class="contenedor seccion">
+        <h1>Actualizar Vendedor</h1>
+        <div class="invisible">
+            <a href="/frontend/admin/vendedores" class="boton-verde">Volver</a>
+            <form method="POST" action=""  enctype="multipart/form-data" class="formulario actualizar">
+                <fieldset>
+                    <legend>Información Vendedor</legend>
+
+                    <input type="hidden" id="id" name="id">
+
+                    <label for="nombre">Nombre</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Nombre Vendedor">
+
+                    <label for="apellido">Apellidos</label>
+                    <input type="text" id="apellido" name="apellido" placeholder="Apellidos Vendedor">
+
+                    <label for="telefono">Teléfono</label>
+                    <input type="text" id="telefono" name="telefono" placeholder="Teléfono Vendedor">
+                </fieldset>
+                <input type="submit" value="Actualizar Vendedor" class="boton boton-verde">
+            </form>
+        </div>
+    </main>
+    <footer class="footer seccion">
+        <div class="contenedor contenedor-footer">
+                <div class="mobile-menu">
+                    <img src="/frontend/build/img/barras.svg" alt="icono menu responsive">
+                </div>
+                <div class="derecha">
+                    <img src="/frontend/build/img/dark-mode.svg" alt="imagen dark mode" class="dark-mode-boton">
+                    <nav class="navegacion">
+                        <a href="/frontend/nosotros.html">Nosotros</a>
+                        <a href="/frontend/anuncios.html">Anuncios</a>
+                        <a href="/frontend/blog.html">Blog</a>
+                        <a href="/frontend/contacto.html">Contacto</a>
+                    </nav>
+                </div>
+        </div>
+        <p class="copyright">Todos los derechos reservados 2021 &copy;</p>
+    </footer>
+    <script src="../../src/js/paginas/actualizar-vendedor.js" type="module"></script>
+</body>
+</html>

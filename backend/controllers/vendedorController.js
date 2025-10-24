@@ -47,7 +47,7 @@ const actualizarVendedor=async(req,res)=>{
   const sql=`UPDATE vendedores SET nombre='${nombre}',apellido='${apellido}',telefono='${telefono}' WHERE id=${id}`;
   try {
     const [result]=await pool.execute(sql,[nombre,apellido,telefono]);
-    res.json({mensaje:`Se ha actualizado el vendedor con id ${insertId}`});
+    res.json({mensaje:`Se ha actualizado el vendedor`});
   } catch (error) {
     res.status(500).json({msg:'Error al actualizar vendedor'});
   }

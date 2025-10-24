@@ -1,4 +1,4 @@
-//import {imprimirAlerta} from '../funciones.js';
+import {imprimirAlerta} from '../funciones.js';
 import {URL_BACKEND} from '../variables.js';
 import { autenticarUsuario } from '../funciones.js';
 

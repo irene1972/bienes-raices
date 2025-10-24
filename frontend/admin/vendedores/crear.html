@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bienes Raices Admin</title>
+    <title>Bienes Raices</title>
     <link rel="stylesheet" href="/frontend/build/css/app.css">
 </head>
 <body>
@@ -22,11 +22,26 @@
             </div>
         </div>
     </header>
-    <main class="contenedor seccion main300">
-        <h1>Listado de vendedores</h1>
-        <div class="response"></div>
-        <a href="/frontend/admin/" class="boton-verde invisible">Volver</a>
-        <a href="/frontend/admin/vendedores/crear.html" class="boton-amarillo invisible">Nuevo vendedor</a>
+    <main class="contenedor seccion">
+        <h1>Crear Vendedor</h1>
+        <div class="invisible">
+            <a href="/frontend/admin/vendedores" class="boton-verde">Volver</a>
+            <form method="POST" action=""  enctype="multipart/form-data" class="formulario crear">
+                <fieldset>
+                    <legend>Información General</legend>
+
+                    <label for="nombre">Nombre</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Nombre Vendedor">
+
+                    <label for="apellido">Apellidos</label>
+                    <input type="text" id="apellido" name="apellido" placeholder="Apellidos Vendedor">
+
+                    <label for="telefono">Teléfono</label>
+                    <input type="text" id="telefono" name="telefono" placeholder="Teléfono Vendedor">
+                </fieldset>
+                <input type="submit" value="Crear Vendedor" class="boton boton-verde">
+            </form>
+        </div>
     </main>
     <footer class="footer seccion">
         <div class="contenedor contenedor-footer">
@@ -34,7 +49,7 @@
                     <img src="/frontend/build/img/barras.svg" alt="icono menu responsive">
                 </div>
                 <div class="derecha">
-                    <img src="/frontend/build/img/dark-mode.svg" alt="" class="dark-mode-boton">
+                    <img src="/frontend/build/img/dark-mode.svg" alt="imagen dark mode" class="dark-mode-boton">
                     <nav class="navegacion">
                         <a href="/frontend/nosotros.html">Nosotros</a>
                         <a href="/frontend/anuncios.html">Anuncios</a>
@@ -45,6 +60,6 @@
         </div>
         <p class="copyright">Todos los derechos reservados 2021 &copy;</p>
     </footer>
-    <script src="/frontend/src/js/paginas/listar-vendedores.js" type="module"></script>
+    <script src="../../src/js/paginas/crear-vendedor.js" type="module"></script>
 </body>
 </html>
