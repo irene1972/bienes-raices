@@ -1,7 +1,8 @@
- import {imprimirAlerta} from '../funciones.js';
+ import {imprimirAlerta,autenticarUsuario} from '../funciones.js';
  import {URL_BACKEND} from '../variables.js';
  
 (()=>{
+    const divContenedor=document.querySelector('.invisible');
 
     const idInput=document.querySelector('#id200');
     const tituloInput=document.querySelector('#titulo200');
@@ -15,6 +16,12 @@
     const formulario=document.querySelector('form.actualizar200');
 
     document.addEventListener('DOMContentLoaded',function(){
+        //verificar la autenticación del usuario
+        autenticarUsuario();
+        const token = localStorage.getItem("token");
+        if(token){
+            divContenedor.classList.remove('invisible');
+        }
 
         //console.log(document.title);
         formulario.addEventListener('submit',modificarPropiedad);

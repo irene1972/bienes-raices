@@ -45,7 +45,13 @@ function darkMode(){
 
 function eventListeners(){
     const mobilMenu=document.querySelector('.mobile-menu');
+    const aCerrarSesion=document.querySelector('.cerrar-sesion');
     mobilMenu.addEventListener('click',navegacionResponsive);
+    aCerrarSesion.addEventListener('click',function(){
+        localStorage.removeItem("token");
+        window.location.reload();
+
+    });
 }
 
 function navegacionResponsive(){

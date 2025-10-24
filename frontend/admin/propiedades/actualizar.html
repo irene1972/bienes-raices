@@ -24,47 +24,48 @@
     </header>
     <main class="contenedor seccion">
         <h1>Actualizar</h1>
-        <a href="/frontend/admin" class="boton-verde">Volver</a>
-                <form method="POST" action=""  enctype="multipart/form-data" class="formulario actualizar200">
-            <fieldset>
-                <legend>Información General</legend>
+        <div class="invisible">
+            <a href="/frontend/admin" class="boton-verde">Volver</a>
+            <form method="POST" action=""  enctype="multipart/form-data" class="formulario actualizar200">
+                <fieldset>
+                    <legend>Información General</legend>
 
-                <label for="id200">Título:</label>
-                <input type="hidden" id="id200" name="id200">
+                    <input type="hidden" id="id200" name="id200">
 
-                <label for="titulo200">Título:</label>
-                <input type="text" id="titulo200" name="titulo200" placeholder="Título Propiedad">
+                    <label for="titulo200">Título:</label>
+                    <input type="text" id="titulo200" name="titulo200" placeholder="Título Propiedad">
 
-                <label for="precio200">Precio</label>
-                <input type="number" id="precio200" name="precio200" placeholder="Precio Propiedad">
+                    <label for="precio200">Precio</label>
+                    <input type="number" id="precio200" name="precio200" placeholder="Precio Propiedad">
 
-                <label for="imagen200">Imagen</label>
-                <!--<input type="file" id="imagen2" name="imagen2" accept="image/jpeg, image/png">-->
-                <input type="text" id="imagen200" name="imagen200" placeholder="Ruta de la imagen">
+                    <label for="imagen200">Imagen</label>
+                    <!--<input type="file" id="imagen2" name="imagen2" accept="image/jpeg, image/png">-->
+                    <input type="text" id="imagen200" name="imagen200" placeholder="Ruta de la imagen">
 
-                <label for="descripcion200">Descripción</label>
-                <textarea id="descripcion200" name="descripcion200"></textarea>
-            </fieldset>
-            <fieldset>
-                <legend>Información de la Propiedad</legend>
+                    <label for="descripcion200">Descripción</label>
+                    <textarea id="descripcion200" name="descripcion200"></textarea>
+                </fieldset>
+                <fieldset>
+                    <legend>Información de la Propiedad</legend>
 
-                <label for="habitaciones200">Habitaciones:</label>
-                <input type="number" id="habitaciones200" placeholder="Ej: 3" min="1" max="9">
+                    <label for="habitaciones200">Habitaciones:</label>
+                    <input type="number" id="habitaciones200" placeholder="Ej: 3" min="1" max="9">
 
-                <label for="wc200">Baños:</label>
-                <input type="number" id="wc200" placeholder="Ej: 3" min="1" max="9">
+                    <label for="wc200">Baños:</label>
+                    <input type="number" id="wc200" placeholder="Ej: 3" min="1" max="9">
 
-                <label for="estacionamiento200">Estacionamiento:</label>
-                <input type="number" id="estacionamiento200" placeholder="Ej: 3" min="1" max="9">
-            </fieldset>
-            <fieldset>
-                <legend>Vendedor</legend>
-                <select name="vendedor" id="vendedor">
-                    <option value="" selected disabled>-- Seleccione Vendedor --</option>
-                </select>
-            </fieldset>
-            <input type="submit" value="Actualizar Propiedad" class="boton boton-verde">
-        </form>
+                    <label for="estacionamiento200">Estacionamiento:</label>
+                    <input type="number" id="estacionamiento200" placeholder="Ej: 3" min="1" max="9">
+                </fieldset>
+                <fieldset>
+                    <legend>Vendedor</legend>
+                    <select name="vendedor" id="vendedor">
+                        <option value="" selected disabled>-- Seleccione Vendedor --</option>
+                    </select>
+                </fieldset>
+                <input type="submit" value="Actualizar Propiedad" class="boton boton-verde">
+            </form>
+        </div>
     </main>
     <footer class="footer seccion">
         <div class="contenedor contenedor-footer">

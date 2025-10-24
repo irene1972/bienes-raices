@@ -1,8 +1,8 @@
-import {imprimirAlerta} from '../funciones.js'; 
+import {imprimirAlerta,autenticarUsuario} from '../funciones.js'; 
 import {URL_BACKEND} from '../variables.js';
 
 (()=>{
-
+const divContenedor=document.querySelector('.invisible');
 const formulario=document.querySelector('.formulario');
 //const archivoInput = document.getElementById('#imagen');
 const vendedorSelect=formulario.querySelector('#vendedor');
@@ -18,7 +18,13 @@ let propiedad={};
 document.addEventListener('DOMContentLoaded',eventListeners);
 
 function eventListeners(){
-    
+    //verificar la autenticación del usuario
+    autenticarUsuario();
+    const token = localStorage.getItem("token");
+    if(token){
+        divContenedor.classList.remove('invisible');
+    }
+
     formulario.addEventListener('submit',validarForm);
     imprimirSelect();
 }
