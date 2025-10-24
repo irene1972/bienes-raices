@@ -40,6 +40,7 @@ function iniciarSesion(email,password){
         .then(data=>{
             if(data.msg){
                 imprimirAlerta(data.msg,'error',formulario);
+                return;
             }
             //console.log(data);
             window.location.replace(`/frontend`);

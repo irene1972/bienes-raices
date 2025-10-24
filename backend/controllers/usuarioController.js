@@ -3,6 +3,7 @@ import pool from '../config/db.js';
 import generarId from '../helpers/generarId.js';
 import generarJWT from '../helpers/generarJWT.js';
 import emailRegistro from '../helpers/emailRegistro.js';
+import emailResetPassword from '../helpers/emailResetPassword.js';
 
 const registrar=async(req,res)=>{
     let {nombre,apellidos,password,email,telefono}=req.body;
@@ -113,6 +114,14 @@ const resetPassword=async (req,res)=>{
         usuario.token=generarId();
         const sql = `UPDATE usuarios SET token='${usuario.token}' WHERE id=${usuario.id}`;
         await pool.execute(sql);
+
+        //enviar un email con las instrucciones
+        emailResetPassword({
+            email,
+            nombre:usuario.nombre,
+            token:usuario.token
+        });
+
         res.json({mensaje:`Hemos enviado un email con las instrucciones`});
         
     } catch (error) {
