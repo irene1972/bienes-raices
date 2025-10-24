@@ -34,11 +34,14 @@ import { autenticarUsuario } from '../funciones.js';
         encabezado2.textContent='Apellidos';
         const encabezado3=document.createElement('TH');
         encabezado3.textContent='Telefono';
+        const encabezado4=document.createElement('TH');
+        encabezado4.textContent='Acciones';
 
         fila1.appendChild(encabezado0);
         fila1.appendChild(encabezado1);
         fila1.appendChild(encabezado2);
         fila1.appendChild(encabezado3);
+        fila1.appendChild(encabezado4);
 
         tabla.appendChild(fila1);
 
@@ -65,13 +68,60 @@ import { autenticarUsuario } from '../funciones.js';
                 col2.textContent=vendedor.apellido;
                 const col3=document.createElement('TD');
                 col3.textContent=vendedor.telefono;
+                const col4=document.createElement('TD');
+                col4.classList.add('flex');
+                col4.innerHTML=`
+                <a href="#" id="${vendedor.id}" class="boton boton-rojo-block eliminar">Eliminar</a>
+                <a href="#" id="${vendedor.id}" class="boton boton-naranja-block actualizar">Actualizar</a>
+                `;
                 
                 fila.appendChild(col0);
                 fila.appendChild(col1);
                 fila.appendChild(col2);
                 fila.appendChild(col3);
+                fila.appendChild(col4);
 
                 tabla.appendChild(fila);
+
+                let botonEliminar=document.querySelector('a.eliminar');
+                let botonActualizar=document.querySelector('a.actualizar');
+
+                for (botonActualizar of document.querySelectorAll('.actualizar')) {
+                    // here i add the the event Listener to the button 
+                    botonActualizar.addEventListener('click', (e) => {
+                        const id=e.target.getAttribute('id');
+                        window.location.replace(`/frontend/admin/vendedores/actualizar.html?id=${id}`);
+                    });
+                }
+
+                botonEliminar.onclick=(e)=>{
+                    //console.log(e.target);
+                    if (window.confirm("¿Desea eliminar el vendedor?")) {
+                        const id=e.target.id;
+                        fetch(`${URL_BACKEND}/api/vendedores/${id}`, {
+                            method: "DELETE",
+                            headers: {
+                                'Content-Type':'application/json'
+                            }
+                            })
+                            .then(response => response.json())
+                            .then(resultado => {
+                                if(resultado.msg){
+                                    imprimirAlerta(resultado.msg,'error',main);
+                                    return;
+                                }
+                                imprimirAlerta(resultado.mensaje,'exito',main);
+
+                                setTimeout(()=>{
+                                    window.location.reload();
+                                },3000);
+                                
+                                
+                            })
+                            .catch(err => console.log(err));
+
+                    }
+                };
 
             });
             
