@@ -7,10 +7,15 @@ const obtenerVendedores=async (req, res) => {
     res.json(rows);
   } catch (err) {
     console.error("Error al ejecutar la consulta:", err);
-    res.status(500).send('Error interno del servidor');
+    res.status(500).json({msg:'Error interno del servidor'});
   }
 }
 
+const crearVendedor=(req,res)=>{
+
+}
+
 export {
-    obtenerVendedores
+    obtenerVendedores,
+    crearVendedor
 }

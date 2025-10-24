@@ -28,7 +28,7 @@ export function cargarCasasYDepsEnVenta(num){
         })
         .then(response=>response.json())
         .then(data=>{
-            console.log(data);
+            //console.log(data);
             data.forEach(propiedad=>{
                 let anuncio=document.createElement('DIV');
                 const {titulo,descripcion,precio,imagen,habitaciones,estacionamiento,wc,id}=propiedad;

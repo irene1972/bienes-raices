@@ -1,13 +1,13 @@
 import express from 'express';
 import {
     obtenerVendedores,
-    //crearVendedor
+    crearVendedor
 } from '../controllers/vendedorController.js';
 
 const router=express.Router();
 
 //area pública
 router.get('/',obtenerVendedores);
-//router.post('/',crearVendedor);
+router.post('/',crearVendedor);
 
 export default router;

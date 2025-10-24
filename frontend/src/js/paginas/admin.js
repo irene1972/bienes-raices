@@ -18,22 +18,31 @@ import {imprimirAlerta} from '../funciones.js';
     const main=document.querySelector('main.main300');
 
     function cargarPagina(){
-        const boton=document.querySelector('.boton-verde');
-        boton.classList.remove('invisible');
+        const botonVerde=document.querySelector('.boton-verde');
+        botonVerde.classList.remove('invisible');
+        const botonAmarillo=document.querySelector('.boton-amarillo');
+        botonAmarillo.classList.remove('invisible');
 
         const tabla=document.createElement('TABLE');
         tabla.classList.add('tabla');
         const fila1=document.createElement('TR');
         fila1.classList.add('encabezados');
+        const encabezado0=document.createElement('TH');
+        encabezado0.textContent='Id';
         const encabezado1=document.createElement('TH');
         encabezado1.textContent='Título';
         const encabezado2=document.createElement('TH');
         encabezado2.textContent='Precio';
         const encabezado3=document.createElement('TH');
+        encabezado3.textContent='Imagen';
+        /*
+        const encabezado3=document.createElement('TH');
         encabezado3.textContent='Descripción';
+        */
         const encabezado4=document.createElement('TH');
         encabezado4.textContent='Acciones';
 
+        fila1.appendChild(encabezado0);
         fila1.appendChild(encabezado1);
         fila1.appendChild(encabezado2);
         fila1.appendChild(encabezado3);
@@ -56,12 +65,20 @@ import {imprimirAlerta} from '../funciones.js';
                 //console.log(vendedor);
 
                 const fila=document.createElement('TR');
+                const col0=document.createElement('TD');
+                col0.textContent=propiedad.id;
                 const col1=document.createElement('TD');
                 col1.textContent=propiedad.titulo;
                 const col2=document.createElement('TD');
                 col2.textContent=propiedad.precio;
                 const col3=document.createElement('TD');
+                col3.innerHTML= `
+                                <img src="/frontend/${propiedad.imagen}.jpg" alt="imagen propiedad" width="0" height="100">
+                                `;
+                /*
+                const col3=document.createElement('TD');
                 col3.textContent=propiedad.descripcion;
+                */
                 const col4=document.createElement('TD');
                 col4.classList.add('flex');
                 col4.innerHTML=`
@@ -69,6 +86,7 @@ import {imprimirAlerta} from '../funciones.js';
                 <a href="#" id="${propiedad.id}" class="boton boton-naranja-block actualizar">Actualizar</a>
                 `;
                 
+                fila.appendChild(col0);
                 fila.appendChild(col1);
                 fila.appendChild(col2);
                 fila.appendChild(col3);
