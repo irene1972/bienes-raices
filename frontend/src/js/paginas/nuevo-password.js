@@ -9,8 +9,28 @@ const formulario=document.querySelector('.formulario');
 const passwordInput=document.querySelector('#password');
 const repeatPasswordInput=document.querySelector('#repeatPassword');
 
+//extraemos el parámetro token de la url
+const params = new URLSearchParams(document.location.search);
+const token = params.get("token");
+
 function eventListers(){
+    validaToken();
     formulario.addEventListener('submit',validarFormulario)
+}
+
+function validaToken(){
+    fetch(`${URL_API}/usuarios/reset-password/${token}`,{
+        method:'GET',
+        headers:{
+            'Content-Type':'application/json'
+        }
+    })
+        .then(response=>response.json())
+        .then(data=>{
+            if(data.msg) return imprimirAlerta(data.msg,'error',formulario);
+            //return imprimirAlerta(data.mensaje,'exito',formulario);
+        })
+        .catch(error=>console.error({'Error':error.message}));
 }
 
 function validarFormulario(e){
@@ -28,9 +48,6 @@ function validarFormulario(e){
 }
 
 function cambiarPassword(password,repeatPassword){
-    //extraemos el parámetro token de la url
-    const params = new URLSearchParams(document.location.search);
-    const token = params.get("token");
 
     fetch(`${URL_API}/usuarios/reset-password/${token}`,{
         method:'POST',

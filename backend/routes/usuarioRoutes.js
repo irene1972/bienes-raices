@@ -1,7 +1,7 @@
 import express from 'express';
 import { 
     registrar,
-    perfil,
+    admin,
     confirmar, 
     autenticar,
     resetPassword,
@@ -23,7 +23,7 @@ router.post('/reset-password/:token',nuevoPassword);
 //router.route('/reset-password/:token').get(comprobarToken).post(nuevoPassword)
 
 //rutas privadas
-router.get('/perfil',checkAuth,perfil);
+router.get('/admin',checkAuth,admin);
 
 
 export default router;

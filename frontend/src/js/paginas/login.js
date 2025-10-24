@@ -42,7 +42,10 @@ function iniciarSesion(email,password){
                 imprimirAlerta(data.msg,'error',formulario);
                 return;
             }
-            //console.log(data);
+            //almacenar token en storage
+            const token=data.token;
+            localStorage.setItem("token", token);
+
             window.location.replace(`/frontend`);
         })
         .catch(error=>console.error({'Error':error.message}));

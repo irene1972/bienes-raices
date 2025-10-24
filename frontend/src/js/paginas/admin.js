@@ -1,18 +1,26 @@
 import {imprimirAlerta} from '../funciones.js';
  import {URL_BACKEND} from '../variables.js';
+ import { autenticarUsuario } from '../funciones.js';
 
 (()=>{
-    
+    const divContainer=document.querySelector('.response');
+
     document.addEventListener('DOMContentLoaded',function(){
-        //console.log(document.title);
+        //primero autenticamos al usuario
         
-        cargarPropiedades();
+        autenticarUsuario(divContainer);
+        const token = localStorage.getItem("token");
+        if(token) cargarPagina();
+        
         
     });
 
     const main=document.querySelector('main.main300');
 
-    function cargarPropiedades(){
+    function cargarPagina(){
+        const boton=document.querySelector('.boton-verde');
+        boton.classList.remove('invisible');
+
         const tabla=document.createElement('TABLE');
         tabla.classList.add('tabla');
         const fila1=document.createElement('TR');
@@ -117,6 +125,7 @@ import {imprimirAlerta} from '../funciones.js';
                 };
 
             });
+            
         })
         .catch(error => console.error('Error:', error.message));
     }

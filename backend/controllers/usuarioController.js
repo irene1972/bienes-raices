@@ -47,9 +47,9 @@ const registrar=async(req,res)=>{
 
 }
 
-const perfil=(req,res)=>{
+const admin=(req,res)=>{
     const {usuario}=req;
-    res.json({perfil:usuario});
+    res.json({admin:usuario});
 }
 
 const confirmar=async(req,res)=>{
@@ -168,7 +168,7 @@ const nuevoPassword=async(req,res)=>{
 
 export {
     registrar,
-    perfil,
+    admin,
     confirmar,
     autenticar,
     resetPassword,

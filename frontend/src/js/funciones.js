@@ -1,4 +1,4 @@
-import {URL_BACKEND} from './variables.js';
+import {URL_BACKEND,URL_API} from './variables.js';
 
 export function imprimirAlerta(mensaje,tipo,referencia){
     const alertaPrevia=document.querySelector('.alerta');
@@ -75,3 +75,37 @@ export function validarEmail(email) {
     const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
     return regex.test(email);
 }
+
+export function autenticarUsuario(referencia){
+        //extraemos de local storage el token
+        const token = localStorage.getItem("token");
+
+        fetch(`${URL_API}/usuarios/admin`,{
+            method:'GET',
+            headers:{
+                'Content-Type':'application/json',
+                'Authorization': `Bearer ${token}`
+            }
+        })
+            .then(response=>response.json())
+            .then(data=>{
+                //console.log(data.admin.nombre);
+                if(data.msg) {
+                    localStorage.removeItem('token');
+                    if(referencia){
+                        imprimirAlerta(data.msg,'error',referencia);
+                        return;
+                    }
+                    
+                };
+                //mensaje saludo
+                const divDerecha=document.querySelector('.derecha');
+                const parrafo=document.createElement('P');
+                parrafo.textContent=`Hola ${data.admin.nombre}`;
+                parrafo.classList.add('saludo');
+                divDerecha.prepend(parrafo);
+                
+            })
+            .catch(error=>console.error({'Error':error.message}));
+
+    }

@@ -1,8 +1,20 @@
-import {cargarCasasYDepsEnVenta} from './funciones.js';
+import {cargarCasasYDepsEnVenta,autenticarUsuario} from './funciones.js';
 
 (()=>{
+const nav=document.querySelector('.navegacion');
 
 document.addEventListener('DOMContentLoaded',function(){
+    //si auth se muestra el botón admin
+    autenticarUsuario();
+    const token = localStorage.getItem("token");
+
+    if(token){
+        const aAdmin=document.createElement('A');
+        aAdmin.textContent='Admin';
+        aAdmin.href='/frontend/admin/';
+        nav.appendChild(aAdmin);
+    }
+
     eventListeners();
     darkMode();
     cargarCasasYDepsEnVenta(3);
